@@ -45,18 +45,15 @@ public class ExtractorService {
         return ips;
     }
 
-    public Extractor emailExtractor(String mailBody) {
+    public String emailExtractor(String mailBody) {
         List<String> dimension = captureDimension(mailBody);
         List<String> kg = captureKg(mailBody);
         List<String> pc = capturePc(mailBody);
         String dimString = dimension.get(0);
         String kgString = kg.get(0);
         String pcString = pc.get(0);
-        System.out.println(kgString.substring(0, kgString.indexOf("kg")));
-
-
-
-
-        return null;
+        String result = pcString.substring(0, pcString.indexOf("pc")) + " X (" + dimString + "cm) " + kgString.substring(0, kgString.indexOf("kg")) + " kg";
+        System.out.println(result);
+        return result;
     }
 }

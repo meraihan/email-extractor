@@ -15,8 +15,8 @@ public class ExtractController {
     private ExtractorService extractorService;
 
     @GetMapping("/extract")
-    public ResponseEntity<Extractor> getOrderById(@RequestParam("body") String mailBody) {
-        Extractor extractor = extractorService.emailExtractor(mailBody);
+    public ResponseEntity<String> getOrderById(@RequestParam("body") String mailBody) {
+        String extractor = extractorService.emailExtractor(mailBody);
         return ResponseEntity.ok().body(extractor);
     }
 
